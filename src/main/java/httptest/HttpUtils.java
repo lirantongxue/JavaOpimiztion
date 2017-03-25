@@ -92,9 +92,10 @@ public final class HttpUtils {
 
 		SSLConnectionSocketFactory ssf = new SSLConnectionSocketFactory(ctx, new HostnameVerifier(){
 
-
-			public boolean verify(String s, SSLSession sslSession) {
-				return false;
+			@Override
+			public boolean verify(String hostname, SSLSession sslSession) {
+				hostname = "api.netease.im";
+				return SSLConnectionSocketFactory.getDefaultHostnameVerifier().verify(hostname, sslSession);
 			}
 		});
 

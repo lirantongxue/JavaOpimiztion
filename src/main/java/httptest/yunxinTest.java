@@ -19,11 +19,13 @@ import java.util.*;
  * @create 2017-03-24-15:12
  */
 
+
+
 public class yunxinTest {
 
-    public static final String APP_KEY = "b08423a22c2f944a22b3b341c72f8c92";
-    public static final String APP_SECRET = "c595286dbad9";
-    public static final String STRING = "https://api.netease.im/sms/sendcode.action";
+    private static final String APP_KEY = "b08423a22c2f944a22b3b341c72f8c92";
+    private static final String APP_SECRET = "c595286dbad9";
+    private static final String STRING = "https://api.netease.im/sms/sendcode.action";
 
     public static void main(String[] args) {
        // yunxinDemo();
@@ -49,12 +51,14 @@ public class yunxinTest {
             }
 
         } ;
-        JSONObject jo=new JSONObject();
-        jo.put("mobile","18801488872");
+        String jo="mobile=18801488872";
         String result = HttpUtils.sendPostRequestWithHeaders(STRING,jo.toString(), headers);
         System.out.println(result);
     }
 
+    /**
+     * 云信测试
+     */
     private static void yunxinDemo() {
         try {
         DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -78,7 +82,7 @@ public class yunxinTest {
         httpPost.setEntity(new UrlEncodedFormEntity(nvps, "utf-8"));
 
           // 执行请求
-           HttpResponse response = null;
+            HttpResponse response = null;
 
             response = httpClient.execute(httpPost);
             // 打印执行结果
