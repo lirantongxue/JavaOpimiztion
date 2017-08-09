@@ -1,4 +1,4 @@
-package AlgorithmDateStructure.SequenceListDemo;
+package AlgorithmDateStructure.ListDemo.SequenceListDemo;
 
 //学生类
 public class Students {

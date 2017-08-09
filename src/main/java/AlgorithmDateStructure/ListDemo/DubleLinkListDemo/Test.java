@@ -1,5 +1,7 @@
-package AlgorithmDateStructure.LinkListDemo;
+package AlgorithmDateStructure.ListDemo.DubleLinkListDemo;
 
+
+import java.util.Random;
 
 public class Test {
 
@@ -8,14 +10,15 @@ public class Test {
 	 */
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		LinkList list = new LinkList();
+		DoubleLinkList list = new DoubleLinkList();
+		Random a=new Random(1);
 		for(int i=0;i<10;i++)
 		{
-			int temp = ((int)(Math.random()*100))%100;
+			int temp=a.nextInt();
 			list.insert(i, temp);
 			System.out.print(temp+" ");
 		}
-		list.delete(4);
+		list.delete(5);
 		System.out.println("\n------删除第五个元素之后-------");
 		for(int i=0;i<list.size;i++)
 		{

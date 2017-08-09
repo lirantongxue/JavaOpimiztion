@@ -1,4 +1,4 @@
-package AlgorithmDateStructure.SequenceListDemo;
+package AlgorithmDateStructure.ListDemo.SequenceListDemo;
 
 
 public class SequenceList implements List{

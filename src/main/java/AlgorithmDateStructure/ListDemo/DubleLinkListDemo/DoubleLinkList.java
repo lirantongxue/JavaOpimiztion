@@ -1,17 +1,20 @@
-package AlgorithmDateStructure.LinkListDemo;
-//单向链表类
-public class LinkList implements List {
+package AlgorithmDateStructure.ListDemo.DubleLinkListDemo;
+
+//双向循环链表类
+public class DoubleLinkList implements List {
 
 	Node head; //头指针
 	Node current;//当前结点对象
 	int size;//结点个数
 
 	//初始化一个空链表
-	public LinkList()
+	public DoubleLinkList()
 	{
 		//初始化头结点，让头指针指向头结点。并且让当前结点对象等于头结点。
 		this.head = current = new Node(null);
 		this.size =0;//单向链表，初始长度为零。
+		this.head.next=head;
+		this.head.prior=head;
 	}
 
 	//定位函数，实现当前操作对象的前一个结点，也就是让当前结点对象定位到要操作结点的前一个结点。
@@ -48,6 +51,7 @@ public class LinkList implements List {
 		}
 		index(index-1);//定位到要操作结点的前一个结点对象。
 		current.setNext(current.next.next);
+		current.next.setPrior(current);
 		size--;
 	}
 
@@ -72,6 +76,8 @@ public class LinkList implements List {
 		}
 		index(index-1);//定位到要操作结点的前一个结点对象。
 		current.setNext(new Node(obj,current.next));
+		current.next.setPrior(current);
+		current.next.next.setPrior(current.next);
 		size++;
 	}
 

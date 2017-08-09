@@ -1,4 +1,4 @@
-package AlgorithmDateStructure.SequenceListDemo;
+package AlgorithmDateStructure.ListDemo.SequenceListDemo;
 
 //线性表接口
 public interface List {

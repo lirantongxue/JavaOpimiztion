@@ -1,4 +1,4 @@
-package JavaOptimization;/**
+package JavaOptimization.ObserverDemo;/**
  * Created by liran on 17/7/17.
  */
 
@@ -56,5 +56,8 @@ public class QuickList implements RandomAccess {
         for (String s:keys){
 
         }
+
     }
+
+
 }
