@@ -33,6 +33,10 @@ public class FutureTest {
             System.out.println("主业务处理完毕");
 
             System.out.println("获取核心业务处理返回数据"+futureTask.get().toString());
+
+
+            //关闭线程池，方便停止控制台。测试用
+//            executorService.shutdown();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
