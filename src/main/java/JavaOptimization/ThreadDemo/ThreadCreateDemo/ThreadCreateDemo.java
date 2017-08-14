@@ -24,6 +24,8 @@ public class ThreadCreateDemo implements Runnable {
 
         threadCreateD();
 
+//     查询电脑CPU 个数   System.out.println(Runtime.getRuntime().availableProcessors());
+
 
 
     }
