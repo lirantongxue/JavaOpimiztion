@@ -23,6 +23,8 @@ public class Consumer implements Runnable {
         this.queue = queue;
     }
 
+    public boolean isRunFlg=true;
+
 
     @Override
     public void run() {
@@ -31,12 +33,15 @@ public class Consumer implements Runnable {
 
         Random r = new Random();//随机等待时间
         try {
-            while (true) {
+            while (isRunFlg) {
                 PCDate pcDate = queue.take(); //提取任务 会阻塞直到队列里有值
                 if (null != pcDate) {
                     int re = pcDate.getDate() * pcDate.getDate();//模拟业务 假设算平方
                     System.out.println(MessageFormat.format("{0} * {1} = {2}", pcDate.getDate(), pcDate.getDate(), re));
                     Thread.sleep(r.nextInt(SLEEPTIME));//模拟消费时间
+                    if(!pcDate.runFlg){
+                        this.isRunFlg=false;
+                    }
                 }
             }
         } catch (Exception e) {

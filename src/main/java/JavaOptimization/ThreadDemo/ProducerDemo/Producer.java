@@ -53,6 +53,7 @@ public class Producer implements Runnable {
         this.queue = queue;
     }
 
+    public Boolean isFlg=true;
 
     @Override
     public void run() {
@@ -65,7 +66,7 @@ public class Producer implements Runnable {
         try {
             while (isRuning) {
                 Thread.sleep(r.nextInt(SLEEPTIME));
-                date = new PCDate(count.incrementAndGet());//构造任务数据
+                date = new PCDate(count.incrementAndGet(),isFlg);//构造任务数据 count 是线程安全的，所以这里会并行排队
                 System.out.println(date + "is put into queue");//将任务数据放入缓冲区（队列）
                 if (!queue.offer(date, 2, TimeUnit.SECONDS)) {
                     System.out.println("failed to put data" + date); //任务数据已经放入缓冲区
@@ -78,8 +79,8 @@ public class Producer implements Runnable {
     }
 
     public void stop(){
-        this.isRuning=false;
-
+        this.isRuning=false; //控制生产者 停止生产标识
+        this.isFlg=false;    //通知消费者 停止消费标识
     }
 
 }

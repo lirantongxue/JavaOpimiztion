@@ -42,7 +42,7 @@ public class Test {
         producer3.stop();
 
         Thread.sleep(3000);
-        sevice.shutdown();// 由于消费者使用 task方法 会阻塞队列，所以shutdown 方法永久不会安全关闭线程池
+        sevice.shutdown();// 由于消费者使用 task方法 会阻塞队列，所以shutdown 方法永久不会安全关闭线程池[所以在 pcDate 里加了一个关闭通知标识]
         System.out.println("线程池关闭");
 
     }
