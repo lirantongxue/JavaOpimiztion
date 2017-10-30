@@ -5,6 +5,7 @@ package JavaOptimization.ThreadDemo.ConcurrentDatastructure;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -34,9 +35,17 @@ public class ConcurrentDeque {
         //适用高并发  性能不如：LinkedBlockingQueue  ,CouncurrentLinkQueue
         Deque<String>  dequeLinkBlock= new LinkedBlockingDeque<>();
 
+        for (int i = 0; i <20000 ; i++) {
+            dequeLinkBlock.add("i");
+        }
 
+        Iterator<String> de= dequeLinkBlock.descendingIterator();
 
+        while (de.hasNext()){
 
+            System.out.println("输出"+de.next());
+
+        }
 
     }
 }
