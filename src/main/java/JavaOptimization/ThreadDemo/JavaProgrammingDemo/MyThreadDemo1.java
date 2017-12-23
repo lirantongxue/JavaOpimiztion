@@ -11,10 +11,10 @@ package JavaOptimization.ThreadDemo.JavaProgrammingDemo;
  */
 public class MyThreadDemo1 extends Thread {
 
-    private int count = 5;
+    private volatile int count = 5;
 
     @Override
-    public void run() {
+    synchronized public void run() {
         super.run();
         count--;
         System.out.println("由" + this.currentThread().getName() + "计算，count=" + count);
