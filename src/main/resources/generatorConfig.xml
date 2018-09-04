@@ -47,6 +47,6 @@
 		</javaClientGenerator>
 
 		<!-- 指定数据库表，要生成哪些表，就写哪些表，要和数据库中对应，不能写错！ -->
-		<table tableName="hx_commod"></table>
+		<table tableName="hx_advertise"></table>
 	</context>
 </generatorConfiguration>

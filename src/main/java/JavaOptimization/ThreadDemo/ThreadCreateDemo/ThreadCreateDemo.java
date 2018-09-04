@@ -15,16 +15,16 @@ public class ThreadCreateDemo implements Runnable {
 
     public static void main(String[] args) {
 
-
-        threadCreateA();
-
-        threadCreateB();
-
-        threadCreateC();
-
-        threadCreateD();
-
-//     查询电脑CPU 个数   System.out.println(Runtime.getRuntime().availableProcessors());
+//
+//        threadCreateA();
+//
+//        threadCreateB();
+//
+//        threadCreateC();
+//
+//        threadCreateD();
+//          查询电脑CPU 个数
+       System.out.println(Runtime.getRuntime().availableProcessors());
 
 
 
