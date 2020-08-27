@@ -27,7 +27,7 @@ public class Test {
         subject.attach(iObserver1);
         subject.attach(iObserver2);
         subject.inform(5);
-
+        System.out.println("dev开发测试");
 
 
     }
