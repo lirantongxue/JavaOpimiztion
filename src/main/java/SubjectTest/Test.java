@@ -28,7 +28,7 @@ public class Test {
         subject.attach(iObserver2);
         subject.inform(5);
         System.out.println("dev开发测试");
-
+        System.out.println("master开发新功能");
 
     }
 
