@@ -65,7 +65,7 @@ class P20ValidParentheses {
     public static void main(String[] args) {
         Solution solution = new P20ValidParentheses().new Solution();
         // TO TEST
-        String s = "()[]{]";
+        String s = "({[]})";
         System.out.println(solution.isValid(s));
     }
 
@@ -73,19 +73,19 @@ class P20ValidParentheses {
     class Solution {
         public boolean isValid(String s) {
             Stack<Character> stack = new Stack<>();
-            String[] split = s.split(",");
             if (StringUtils.isBlank(s)) {
                 return true;
             }
-            for (String s1 : split) {
+            for (char s1 : s.toCharArray()) {
                 if (stack.isEmpty()) {
+                    stack.push(Character.valueOf(s1));
                     continue;
                 }
-                Character peek = stack.peek();//获取栈顶元素
-                if ((peek.charValue() == '(' && s1.equals(")")) || (peek.charValue() == '{' && s1.equals("}")) || (peek.charValue() == '[' && s1.equals("]"))) {
-                    stack.pop();
+                char peek = stack.peek();//获取栈顶元素
+                if ((peek == '(' &&  s1== ')') || (peek == '{' && s1=='}') || (peek == '[' && s1==']')) {
+                    stack.pop(); //弹出
                 } else {
-                    stack.push(Character.valueOf(s1.toCharArray()[0]));
+                    stack.push(s1); //压栈
                 }
             }
             return stack.isEmpty();
