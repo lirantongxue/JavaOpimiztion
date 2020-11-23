@@ -1,4 +1,4 @@
-package PsPictureTest;
+package designpatterns.PsPictureTest;
 
 /**
  * 脚步优化:

@@ -1,4 +1,4 @@
-package PsPictureTest;
+package designpatterns.PsPictureTest;
 
 /**
  *  装饰者主题  抽象类： 也可以是接口

@@ -1,4 +1,4 @@
-package ProxyTest;
+package designpatterns.ProxyTest;
 
 /**
  * :

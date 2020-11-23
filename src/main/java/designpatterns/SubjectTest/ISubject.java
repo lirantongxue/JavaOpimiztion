@@ -1,4 +1,4 @@
-package SubjectTest;
+package designpatterns.SubjectTest;
 
 /**
  * 被观者:

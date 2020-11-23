@@ -1,4 +1,4 @@
-package PsPictureTest;
+package designpatterns.PsPictureTest;
 
 /**
  * 测试装饰者模式:

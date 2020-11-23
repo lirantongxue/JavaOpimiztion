@@ -1,4 +1,4 @@
-package ProxyTest;
+package designpatterns.ProxyTest;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

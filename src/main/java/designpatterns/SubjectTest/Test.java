@@ -1,4 +1,4 @@
-package SubjectTest;
+package designpatterns.SubjectTest;
 
 /**
  * 测试观察者模式:
