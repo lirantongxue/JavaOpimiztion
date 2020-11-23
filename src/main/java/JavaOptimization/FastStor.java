@@ -38,7 +38,6 @@ public class FastStor {
             if (left < right && arr[left] <= pivot) {
                 left++;
             }
-
             if (left < right) {
                 int p = arr[right];
                 arr[right] = arr[left];
@@ -48,9 +47,10 @@ public class FastStor {
 
         }
 
-        if( arr[left]==arr[right]){
-            arr[left]=pivot;
-        }
+        //pivot 和指针重合点交换
+       	arr[startIndex] = arr[left];
+       	arr[left] = pivot;
+
         return left;
     }
 }
