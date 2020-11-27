@@ -77,27 +77,29 @@ class P2AddTwoNumbers {
      */
     class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
             ListNode dummyHead = new ListNode(-1);
-            ListNode curr=dummyHead;
-            ListNode p = l1, q = l2;
-            int carry = 0;
-            while (p != null || q != null) {
-                int x = (p != null) ? p.val : 0;
-                int y = (q != null) ? q.val : 0;
-                int sum = carry + x + y;
-                carry = sum / 10;//进位
-                curr.next = new ListNode(sum % 10);
-                curr = curr.next;// 前继指针curr 后移指向到 当前node节点(curr.next)。原理使用 curr 作为临时指针,进行新链表的关联。
-                if (p != null) {
-                    p = p.next;
+            //创建 临时虚拟node 进行 新链表关联。
+            ListNode pre=dummyHead;
+            //创建临时变量p1 p2 进行链表遍历
+            ListNode p1 = l1, p2 = l2;
+            int var=0; //进行进位
+            while (p1 !=null || p2 !=null){
+                int x = (p1 != null) ? p1.val : 0;
+                int y = (p2 != null) ? p2.val : 0;
+                int sum = var + x + y;
+                var= sum / 10;
+                pre.next = new ListNode(sum % 10);
+                pre = pre.next;//将当前Pre 指针从 dummyHead 节点位置移动到 当前新node 节点。
+                if(p1 !=null){
+                    p1=p1.next;//指针顺序后移遍历
                 }
-                if (q != null) {
-                    q = q.next;
+                if(p2 !=null){
+                    p2 =p2.next;//指针顺序后移遍历
                 }
+
             }
-            if (carry > 0) {//假设相加大还于10，则继续进位 例如 20 30  40 则进位 1 2 3
-                curr.next = new ListNode(carry);
+            if(var > 0){ //如果相加大于20 则继续进位，并创建新的Node 节点
+                pre.next=new ListNode(var);
             }
             return dummyHead.next;
 
