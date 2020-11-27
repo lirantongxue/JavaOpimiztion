@@ -56,8 +56,12 @@ class P2AddTwoNumbers {
 
         listNode2.val = 5;
         listNode2.next = new P2AddTwoNumbers().new ListNode(6);
-        listNode2.next.next = new P2AddTwoNumbers().new ListNode(4);
-        solution.addTwoNumbers(listNode1, listNode2);
+        listNode2.next.next = new P2AddTwoNumbers().new ListNode(2);
+        ListNode listNode = solution.addTwoNumbers(listNode1, listNode2);
+        while (listNode!=null){
+            System.out.println(listNode.val);
+            listNode=listNode.next;
+        }
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 
@@ -74,16 +78,17 @@ class P2AddTwoNumbers {
     class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-            ListNode dummyHead = new ListNode(0);
-            ListNode p = l1, q = l2, curr = dummyHead;
+            ListNode dummyHead = new ListNode(-1);
+            ListNode curr=dummyHead;
+            ListNode p = l1, q = l2;
             int carry = 0;
             while (p != null || q != null) {
                 int x = (p != null) ? p.val : 0;
                 int y = (q != null) ? q.val : 0;
                 int sum = carry + x + y;
-                carry = sum / 10;
+                carry = sum / 10;//进位
                 curr.next = new ListNode(sum % 10);
-                curr = curr.next;
+                curr = curr.next;// 前继指针curr 后移指向到 当前node节点(curr.next)。原理使用 curr 作为临时指针,进行新链表的关联。
                 if (p != null) {
                     p = p.next;
                 }
@@ -91,7 +96,7 @@ class P2AddTwoNumbers {
                     q = q.next;
                 }
             }
-            if (carry > 0) {
+            if (carry > 0) {//假设相加大还于10，则继续进位 例如 20 30  40 则进位 1 2 3
                 curr.next = new ListNode(carry);
             }
             return dummyHead.next;
