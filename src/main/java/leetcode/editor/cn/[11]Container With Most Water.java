@@ -59,7 +59,8 @@ class P11ContainerWithMostWater {
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-    class Solution {
+    /** 向内加逼方法，时间复杂度 O(n) **/
+    class SolutionA {
         public int maxArea(int[] height) {
             int max = 0;
             for (int i = 0, j = height.length - 1; i < j;) {
@@ -70,6 +71,21 @@ class P11ContainerWithMostWater {
             return max;
         }
     }
+
+    /** 穷举法，时间复杂度 O(n^2) **/
+    class Solution {
+        public int maxArea(int[] height) {
+            int max = 0;
+            for (int i = 0; i < height.length; i++) {
+                for (int j = 1; j <height.length ; j++) {
+                  int hegintMin=  height[i] < height[j] ?   height[i] : height[j];
+                  max=Math.max(max,(j-i)*hegintMin);
+                }
+            }
+            return max;
+        }
+    }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
