@@ -45,16 +45,19 @@
 package leetcode.editor.cn;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 class P1TwoSum {
     public static void main(String[] args) {
         Solution solution = new P1TwoSum().new Solution();
         // TO TEST
-        System.out.println(Arrays.toString(solution.twoSum(new int[]{3,2,4}, 6)));
+        System.out.println(Arrays.toString(solution.twoSum(new int[]{3,3}, 6)));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-    class Solution {
+    // 暴力遍历 O(n^2)
+    class SolutionA {
         public int[] twoSum(int[] nums, int target) {
             int[] res = new int[2];
             if (nums.length == 0 || nums.length == 1) {
@@ -73,6 +76,29 @@ class P1TwoSum {
             return res;
         }
     }
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    /** O(n)
+     * @description: 用hash表。 利用key 存值，value 存下标的做法。 [3,3]   出现key相同的情况，直接覆盖key.
+     * @author: liran
+     * @date: 2021/7/17 下午6:59
+     * @Param:
+     * @return:
+     */
+    class Solution {
+        public int[] twoSum(int[] nums, int target) {
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i <nums.length ; i++) {
+                if(map.containsKey(target-nums[i])){
+                        return new int[]{map.get(target-nums[i]),i};
+                }
+                map.put(nums[i], i);
+            }
+            return new int[0];
+        }
+    }
+
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
