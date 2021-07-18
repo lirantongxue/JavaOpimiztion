@@ -69,6 +69,9 @@ class P141LinkedListCycle {
      */
     class Solution {
         public boolean hasCycle(ListNode head) {
+            if(head == null || head.next == null){ //考虑特殊 链表只有一个节点时。
+                return false;
+            }
             Set<ListNode> set = new HashSet<>();
             while (head.next != null) {
                 if (!set.add(head)) {
